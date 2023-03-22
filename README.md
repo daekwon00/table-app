@@ -1,3 +1,34 @@
+# TypeScript 로 React 세팅 및 Table 생성
+
+react-table의 kitchen-sink 구현
+홈페이지 [https://tanstack.com/]
+
+## step
+
+아래의 kitchen-sink 를 TypeScript 로 구현
+[https://tanstack.com/table/v8/docs/examples/react/kitchen-sink]
+
+### TypeScript로 프로젝트 생성
+
+yarn create react-app my-app --template typescript
+by [https://korinkorin.tistory.com/94]
+
+### react-table guide 참조
+
+guide [https://tanstack.com/table/v8/docs/guide/introduction]
+
+TypeScript의 프로젝트에서 sand
+[https://codesandbox.io/s/keen-sun-deqzq8?file=/src/App.js]
+
+### table library 추가
+
+yarn add @tanstack/react-table
+by [https://github.com/TanStack/table/discussions/3772]
+
+## 진행
+
+TypeScript 생성 및 react-table guide 분석
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
