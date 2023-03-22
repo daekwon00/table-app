@@ -130,6 +130,7 @@ export const App = () => {
         table.setSorting([{ id: 'fullName', desc: false }])
       }
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [table.getState().columnFilters[0]?.id])
 
   const randomizeColumns = () => {
