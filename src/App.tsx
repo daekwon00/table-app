@@ -22,9 +22,9 @@ import {
   fuzzyFilter,
   getTableMeta,
 } from './tableModels'
-import DebouncedInput from './components/DebouncedInput'
+// import DebouncedInput from './components/DebouncedInput'
 import ActionButtons from './components/ActionButtons'
-import { faker } from '@faker-js/faker'
+// import { faker } from '@faker-js/faker'
 import CustomTable from './components/CustomTable'
 
 const Styles = styled.div`
@@ -77,7 +77,7 @@ export const App = () => {
 
   const [columnVisibility, setColumnVisibility] = React.useState({})
   const [grouping, setGrouping] = React.useState<GroupingState>([])
-  const [isSplit, setIsSplit] = React.useState(false)
+  // const [isSplit, setIsSplit] = React.useState(false)
   const [rowSelection, setRowSelection] = React.useState({})
   const [columnPinning, setColumnPinning] = React.useState({})
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
@@ -133,16 +133,16 @@ export const App = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [table.getState().columnFilters[0]?.id])
 
-  const randomizeColumns = () => {
-    table.setColumnOrder(
-      faker.helpers.shuffle(table.getAllLeafColumns().map(d => d.id))
-    )
-  }
+  // const randomizeColumns = () => {
+  //   table.setColumnOrder(
+  //     faker.helpers.shuffle(table.getAllLeafColumns().map(d => d.id))
+  //   )
+  // }
 
   return (
     <Styles>
       <div className="p-2 grid grid-cols-4 gap-4">
-        <div className="p-2">
+        {/* <div className="p-2">
           Search:
           <DebouncedInput
             value={globalFilter ?? ''}
@@ -150,7 +150,7 @@ export const App = () => {
             className="mx-1 p-2 font-lg shadow border border-block"
             placeholder="Search all columns..."
           />
-        </div>
+        </div> */}
         <div className="p-2 inline-block border border-black shadow rounded">
           <div className="px-1 border-b border-black">
             <label>
@@ -179,7 +179,7 @@ export const App = () => {
             )
           })}
         </div>
-        <div className="p-2">
+        {/* <div className="p-2">
           <div>
             <input
               type="checkbox"
@@ -192,15 +192,20 @@ export const App = () => {
           <button onClick={randomizeColumns} className="border rounded p-1">
             Shuffle Columns
           </button>
-        </div>
+        </div> */}
       </div>
-      <div className={`flex ${isSplit ? 'gap-4' : ''}`}>
+      {/* <div className={`flex ${isSplit ? 'gap-4' : ''}`}>
         {isSplit ? <CustomTable table={table} tableGroup="left" /> : null}
         <CustomTable
           table={table}
           tableGroup={isSplit ? 'center' : undefined}
         />
         {isSplit ? <CustomTable table={table} tableGroup="right" /> : null}
+      </div> */}
+      <div className={`flex`}>        
+        <CustomTable
+          table={table}          
+        />        
       </div>
       <div className="p-2" />
       <ActionButtons

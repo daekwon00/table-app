@@ -7,7 +7,7 @@ import {
 } from '@tanstack/react-table'
 import React from 'react'
 import Filter from './Filter'
-import TablePins from './TablePins'
+// import TablePins from './TablePins'
 
 type TableGroup = 'center' | 'left' | 'right'
 
@@ -46,7 +46,8 @@ export function CustomTable<T extends RowData>({
   table,
   tableGroup,
 }: Props<T>) {
-  const [headerGroups, footerGroup] = getTableHeaderGroups(table, tableGroup)
+  // const [headerGroups, footerGroup] = getTableHeaderGroups(table, tableGroup)
+  const [headerGroups] = getTableHeaderGroups(table, tableGroup)
 
   return (
     <table>
@@ -65,7 +66,7 @@ export function CustomTable<T extends RowData>({
                 {header.isPlaceholder ? null : (
                   <>
                     <div>
-                      {header.column.getCanGroup() ? (
+                      {/* {header.column.getCanGroup() ? (
                         // If the header can be grouped, let's add a toggle
                         <button
                           onClick={header.column.getToggleGroupingHandler()}
@@ -77,12 +78,12 @@ export function CustomTable<T extends RowData>({
                             ? `🛑(${header.column.getGroupedIndex()})`
                             : `👊`}
                         </button>
-                      ) : null}{' '}
+                      ) : null}{' '} */}
                       {flexRender(
                         header.column.columnDef.header,
                         header.getContext()
                       )}{' '}
-                      <button
+                      {/* <button
                         onClick={header.column.getToggleSortingHandler()}
                         className={
                           header.column.getCanSort()
@@ -94,7 +95,7 @@ export function CustomTable<T extends RowData>({
                           asc: '🔼',
                           desc: '🔽',
                         }[header.column.getIsSorted() as string] ?? '📶'}
-                      </button>
+                      </button> */}
                     </div>
                     {header.column.getCanFilter() ? (
                       <div>
@@ -103,7 +104,7 @@ export function CustomTable<T extends RowData>({
                     ) : null}
                   </>
                 )}
-                <div
+                {/* <div
                   className="absolute right-0 top-0 h-full w-1 bg-blue-300 select-none touch-none hover:bg-blue-500 cursor-col-resize"
                   onMouseDown={header.getResizeHandler()}
                   onTouchStart={header.getResizeHandler()}
@@ -113,7 +114,7 @@ export function CustomTable<T extends RowData>({
                     isPinned={header.column.getIsPinned()}
                     pin={header.column.pin}
                   />
-                )}
+                )} */}
               </th>
             ))}
           </tr>
@@ -135,7 +136,7 @@ export function CustomTable<T extends RowData>({
           </tr>
         ))}
       </tbody>
-      <tfoot>
+      {/* <tfoot>
         {footerGroup.map(footerGroup => (
           <tr key={footerGroup.id}>
             {footerGroup.headers.map(header => (
@@ -150,7 +151,7 @@ export function CustomTable<T extends RowData>({
             ))}
           </tr>
         ))}
-      </tfoot>
+      </tfoot> */}
     </table>
   )
 }
