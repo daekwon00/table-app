@@ -5,7 +5,7 @@ react-table의 kitchen-sink 구현
 
 ## step
 
-아래의 kitchen-sink 를 TypeScript 로 구현
+아래의 kitchen-sink 를 TypeScript 프로젝트로 실제 구현
 [https://tanstack.com/table/v8/docs/examples/react/kitchen-sink]
 
 ### TypeScript로 프로젝트 생성
@@ -17,13 +17,29 @@ by [https://korinkorin.tistory.com/94]
 
 guide [https://tanstack.com/table/v8/docs/guide/introduction]
 
-TypeScript의 프로젝트에서 sand
+TypeScript의 프로젝트에서 codesandbox 호출
 [https://codesandbox.io/s/keen-sun-deqzq8?file=/src/App.js]
 
-### table library 추가
+v7 vs v8 비교
+[https://blog.logrocket.com/react-table-complete-guide/]
+
+### table library add
 
 yarn add @tanstack/react-table
 by [https://github.com/TanStack/table/discussions/3772]
+
+이전의 library 를 삭제하려면
+yarn remove test
+
+test라는 패키지는 package.json, yarn lock에서 제거됩니다. dependencies, devDependencies등 모든 타입에서 패키지가 삭제됩니다.
+
+만약 삭제하고 완전히 제거가 안되었다면 yarn install을 해줌으로서 업데이트를 해줍니다.
+by [https://dududweb.tistory.com/103]
+
+### v8 예제 files 적용
+
+v8 예제 정상동작 확인
+불필요한 table 의 요소들 제거
 
 ## 진행
 
