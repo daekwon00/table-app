@@ -1,14 +1,14 @@
 import {
-  // ColumnFiltersState,
+  ColumnFiltersState,
   getCoreRowModel,
   getFacetedMinMaxValues,
-  // getFacetedRowModel,
-  // getFacetedUniqueValues,
+  getFacetedRowModel,
+  getFacetedUniqueValues,
   getFilteredRowModel,
-  // getGroupedRowModel,
+  getGroupedRowModel,
   getPaginationRowModel,
-  // getSortedRowModel,
-  // GroupingState,
+  getSortedRowModel,
+  GroupingState,
   useReactTable,
 } from '@tanstack/react-table'
 import React from 'react'
@@ -22,7 +22,7 @@ import {
   fuzzyFilter,
   getTableMeta,
 } from './tableModels'
-// import DebouncedInput from './components/DebouncedInput'
+import DebouncedInput from './components/DebouncedInput'
 import ActionButtons from './components/ActionButtons'
 // import { faker } from '@faker-js/faker'
 import CustomTable from './components/CustomTable'
@@ -76,13 +76,13 @@ export const App = () => {
   const refreshData = () => setData(makeData(1000))
 
   const [columnVisibility, setColumnVisibility] = React.useState({})
-  // const [grouping, setGrouping] = React.useState<GroupingState>([])
+  const [grouping, setGrouping] = React.useState<GroupingState>([])
   // const [isSplit, setIsSplit] = React.useState(false)
   const [rowSelection, setRowSelection] = React.useState({})
-  // const [columnPinning, setColumnPinning] = React.useState({})
-  // const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
-  //   []
-  // )
+  const [columnPinning, setColumnPinning] = React.useState({})
+  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
+    []
+  )
   const [globalFilter, setGlobalFilter] = React.useState('')
 
   const [autoResetPageIndex, skipAutoResetPageIndex] = useSkipper()
@@ -94,29 +94,29 @@ export const App = () => {
     getCoreRowModel: getCoreRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
-    // getSortedRowModel: getSortedRowModel(),
-    // getGroupedRowModel: getGroupedRowModel(),
-    // getFacetedRowModel: getFacetedRowModel(),
-    // getFacetedUniqueValues: getFacetedUniqueValues(),
+    getSortedRowModel: getSortedRowModel(),
+    getGroupedRowModel: getGroupedRowModel(),
+    getFacetedRowModel: getFacetedRowModel(),
+    getFacetedUniqueValues: getFacetedUniqueValues(),
     getFacetedMinMaxValues: getFacetedMinMaxValues(),
-    // onColumnFiltersChange: setColumnFilters,
+    onColumnFiltersChange: setColumnFilters,
     onGlobalFilterChange: setGlobalFilter,
     globalFilterFn: fuzzyFilter,
     autoResetPageIndex,
     enableColumnResizing: true,
     columnResizeMode: 'onChange',
     onColumnVisibilityChange: setColumnVisibility,
-    // onGroupingChange: setGrouping,
-    // onColumnPinningChange: setColumnPinning,
+    onGroupingChange: setGrouping,
+    onColumnPinningChange: setColumnPinning,
     onRowSelectionChange: setRowSelection,
     // Provide our updateData function to our table meta
     meta: getTableMeta(setData, skipAutoResetPageIndex),
     state: {
-      // grouping,
-      // columnFilters,
+      grouping,
+      columnFilters,
       globalFilter,
       columnVisibility,
-      // columnPinning,
+      columnPinning,
       rowSelection,
     },
     debugTable: true,
@@ -124,14 +124,14 @@ export const App = () => {
     debugColumns: true,
   })
 
-  // React.useEffect(() => {
-  //   if (table.getState().columnFilters[0]?.id === 'fullName') {
-  //     if (table.getState().sorting[0]?.id !== 'fullName') {
-  //       table.setSorting([{ id: 'fullName', desc: false }])
-  //     }
-  //   }
-  // // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [table.getState().columnFilters[0]?.id])
+  React.useEffect(() => {
+    if (table.getState().columnFilters[0]?.id === 'fullName') {
+      if (table.getState().sorting[0]?.id !== 'fullName') {
+        table.setSorting([{ id: 'fullName', desc: false }])
+      }
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [table.getState().columnFilters[0]?.id])
 
   // const randomizeColumns = () => {
   //   table.setColumnOrder(
@@ -142,7 +142,7 @@ export const App = () => {
   return (
     <Styles>
       <div className="p-2 grid grid-cols-4 gap-4">
-        {/* <div className="p-2">
+        <div className="p-2">
           Search:
           <DebouncedInput
             value={globalFilter ?? ''}
@@ -150,7 +150,7 @@ export const App = () => {
             className="mx-1 p-2 font-lg shadow border border-block"
             placeholder="Search all columns..."
           />
-        </div> */}
+        </div>
         <div className="p-2 inline-block border border-black shadow rounded">
           <div className="px-1 border-b border-black">
             <label>
@@ -179,8 +179,8 @@ export const App = () => {
             )
           })}
         </div>
-        {/* <div className="p-2">
-          <div>
+        <div className="p-2">
+          {/* <div>
             <input
               type="checkbox"
               checked={isSplit}
@@ -191,8 +191,8 @@ export const App = () => {
           </div>
           <button onClick={randomizeColumns} className="border rounded p-1">
             Shuffle Columns
-          </button>
-        </div> */}
+          </button> */}
+        </div>
       </div>
       {/* <div className={`flex ${isSplit ? 'gap-4' : ''}`}>
         {isSplit ? <CustomTable table={table} tableGroup="left" /> : null}

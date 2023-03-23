@@ -83,7 +83,7 @@ export function CustomTable<T extends RowData>({
                         header.column.columnDef.header,
                         header.getContext()
                       )}{' '}
-                      {/* <button
+                      <button
                         onClick={header.column.getToggleSortingHandler()}
                         className={
                           header.column.getCanSort()
@@ -95,7 +95,7 @@ export function CustomTable<T extends RowData>({
                           asc: '🔼',
                           desc: '🔽',
                         }[header.column.getIsSorted() as string] ?? '📶'}
-                      </button> */}
+                      </button>
                     </div>
                     {header.column.getCanFilter() ? (
                       <div>
