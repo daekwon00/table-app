@@ -12,6 +12,7 @@ import {
   RankingInfo,
 } from '@tanstack/match-sorter-utils'
 import IndeterminateCheckbox from './components/InderterminateCheckbox'
+import moment from 'moment'
 
 export const fuzzyFilter: FilterFn<Person> = (
   row,
@@ -100,49 +101,44 @@ export const columns: ColumnDef<Person>[] = [
   {
     accessorKey: 'firstName',
     cell: info => info.getValue(),
-    footer: props => props.column.id,
   },
   {
     accessorFn: row => row.lastName,
     id: 'lastName',
     cell: info => info.getValue(),
     header: () => <span>Last Name</span>,
-    footer: props => props.column.id,
   },
   {
     accessorFn: row => `${row.firstName} ${row.lastName}`,
     id: 'fullName',
     header: 'Full Name',
     cell: info => info.getValue(),
-    footer: props => props.column.id,
     filterFn: fuzzyFilter,
     sortingFn: fuzzySort,
   },
   {
     accessorKey: 'visits',
     header: () => <span>Visits</span>,
-    footer: props => props.column.id,
   },
   {
     accessorKey: 'joinDate',
     header: 'joinDate',
-    footer: props => props.column.id,
+    // cell: info => info.getValue<Date>().toTimeString(),
+    cell: info => { return moment().format('YY/MM/DD')}
   },
   {
     accessorKey: 'status',
     header: 'Status',
-    footer: props => props.column.id,
   },
   {
     accessorKey: 'progress',
     header: 'Profile Progress',
-    footer: props => props.column.id,
   },
 ]
 
 export const getTableMeta = (
-setData: React.Dispatch<React.SetStateAction<Person[]>>,
-skipAutoResetPageIndex: () => void
+  setData: React.Dispatch<React.SetStateAction<Person[]>>,
+  skipAutoResetPageIndex: () => void
 ) =>
 ({
   updateData: (rowIndex, columnId, value) => {
