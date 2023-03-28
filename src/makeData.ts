@@ -1,5 +1,7 @@
 import { faker } from '@faker-js/faker'
 
+faker.locale = "ko";
+
 export type Person = {
   firstName: string
   lastName: string
