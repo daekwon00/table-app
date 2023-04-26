@@ -5,6 +5,9 @@ import "./index.css";
 import App from "./App_Basic";
 // import App from "./App_KitchenSink";
 
+import data from "./data/staff.json";
+import StaffTable from "./test/StaffTable";
+
 import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(
@@ -12,7 +15,8 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <App />
+    {/* <App /> */}
+    <StaffTable data={data} />
   </React.StrictMode>
 );
 

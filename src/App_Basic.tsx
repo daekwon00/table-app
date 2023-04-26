@@ -17,6 +17,7 @@ type Person = {
   status: string;
   progress: number;
 };
+
 const defaultData: Person[] = [
   {
     firstName: "tanner",
@@ -51,12 +52,12 @@ const columns = [
     cell: (info) => info.getValue(),
     footer: (info) => info.column.id,
   }),
-  columnHelper.accessor((row) => row.lastName, {
-    id: "lastName",
-    cell: (info) => <i>{info.getValue()}</i>,
-    header: () => <span>Last Name</span>,
-    footer: (info) => info.column.id,
-  }),
+  // columnHelper.accessor((row) => row.lastName, {
+  //   id: "lastName",
+  //   cell: (info) => <i>{info.getValue()}</i>,
+  //   header: () => <span>Last Name</span>,
+  //   footer: (info) => info.column.id,
+  // }),
   columnHelper.accessor("age", {
     header: () => "Age",
     cell: (info) => info.renderValue(),
