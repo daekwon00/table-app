@@ -2,8 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 // import App from "./App";
-import App from "./App_Basic";
+// import App from "./App_Basic";
 // import App from "./App_KitchenSink";
+import App from "./App_editable_v7";
 
 import data from "./data/staff.json";
 import StaffTable from "./test/StaffTable";
@@ -15,8 +16,8 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    {/* <App /> */}
-    <StaffTable data={data} />
+    <App />
+    {/* <StaffTable data={data} /> */}
   </React.StrictMode>
 );
 

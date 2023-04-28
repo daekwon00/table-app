@@ -10,22 +10,22 @@ import {
   getSortedRowModel,
   GroupingState,
   useReactTable,
-} from '@tanstack/react-table'
-import React from 'react'
-import { makeData } from './makeData'
+} from "@tanstack/react-table";
+import React from "react";
+import { makeData } from "./makeData";
 
-import styled from '@emotion/styled'
-import { useSkipper } from './hooks'
+import styled from "@emotion/styled";
+import { useSkipper } from "./hooks";
 import {
   columns,
   defaultColumn,
   fuzzyFilter,
   getTableMeta,
-} from './tableModels'
-import DebouncedInput from './components/DebouncedInput'
-import ActionButtons from './components/ActionButtons'
+} from "./tanstack/tableModels";
+import DebouncedInput from "./components/DebouncedInput";
+import ActionButtons from "./components/ActionButtons";
 // import { faker } from '@faker-js/faker'
-import CustomTable from './components/CustomTable'
+import CustomTable from "./components/CustomTable";
 
 const Styles = styled.div`
   padding: 1rem;
@@ -67,25 +67,25 @@ const Styles = styled.div`
   .pagination {
     padding: 0.5rem;
   }
-`
+`;
 
 export const App = () => {
-  const rerender = React.useReducer(() => ({}), {})[1]
+  const rerender = React.useReducer(() => ({}), {})[1];
 
-  const [data, setData] = React.useState(makeData(1000))
-  const refreshData = () => setData(makeData(1000))
+  const [data, setData] = React.useState(makeData(1000));
+  const refreshData = () => setData(makeData(1000));
 
-  const [columnVisibility, setColumnVisibility] = React.useState({})
-  const [grouping, setGrouping] = React.useState<GroupingState>([])
+  const [columnVisibility, setColumnVisibility] = React.useState({});
+  const [grouping, setGrouping] = React.useState<GroupingState>([]);
   // const [isSplit, setIsSplit] = React.useState(false)
-  const [rowSelection, setRowSelection] = React.useState({})
-  const [columnPinning, setColumnPinning] = React.useState({})
+  const [rowSelection, setRowSelection] = React.useState({});
+  const [columnPinning, setColumnPinning] = React.useState({});
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []
-  )
-  const [globalFilter, setGlobalFilter] = React.useState('')
+  );
+  const [globalFilter, setGlobalFilter] = React.useState("");
 
-  const [autoResetPageIndex, skipAutoResetPageIndex] = useSkipper()
+  const [autoResetPageIndex, skipAutoResetPageIndex] = useSkipper();
 
   const table = useReactTable({
     data,
@@ -104,7 +104,7 @@ export const App = () => {
     globalFilterFn: fuzzyFilter,
     autoResetPageIndex,
     enableColumnResizing: true,
-    columnResizeMode: 'onChange',
+    columnResizeMode: "onChange",
     onColumnVisibilityChange: setColumnVisibility,
     onGroupingChange: setGrouping,
     onColumnPinningChange: setColumnPinning,
@@ -122,16 +122,16 @@ export const App = () => {
     debugTable: true,
     debugHeaders: true,
     debugColumns: true,
-  })
+  });
 
   React.useEffect(() => {
-    if (table.getState().columnFilters[0]?.id === 'fullName') {
-      if (table.getState().sorting[0]?.id !== 'fullName') {
-        table.setSorting([{ id: 'fullName', desc: false }])
+    if (table.getState().columnFilters[0]?.id === "fullName") {
+      if (table.getState().sorting[0]?.id !== "fullName") {
+        table.setSorting([{ id: "fullName", desc: false }]);
       }
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [table.getState().columnFilters[0]?.id])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [table.getState().columnFilters[0]?.id]);
 
   // const randomizeColumns = () => {
   //   table.setColumnOrder(
@@ -145,8 +145,8 @@ export const App = () => {
         <div className="p-2">
           Search:
           <DebouncedInput
-            value={globalFilter ?? ''}
-            onChange={value => setGlobalFilter(String(value))}
+            value={globalFilter ?? ""}
+            onChange={(value) => setGlobalFilter(String(value))}
             className="mx-1 p-2 font-lg shadow border border-block"
             placeholder="Search all columns..."
           />
@@ -163,7 +163,7 @@ export const App = () => {
               Toggle All
             </label>
           </div>
-          {table.getAllLeafColumns().map(column => {
+          {table.getAllLeafColumns().map((column) => {
             return (
               <div key={column.id} className="px-1">
                 <label>
@@ -176,7 +176,7 @@ export const App = () => {
                   {column.id}
                 </label>
               </div>
-            )
+            );
           })}
         </div>
         <div className="p-2">
@@ -202,10 +202,8 @@ export const App = () => {
         />
         {isSplit ? <CustomTable table={table} tableGroup="right" /> : null}
       </div> */}
-      <div className={`flex`}>        
-        <CustomTable
-          table={table}          
-        />        
+      <div className={`flex`}>
+        <CustomTable table={table} />
       </div>
       <div className="p-2" />
       <ActionButtons
@@ -227,7 +225,7 @@ export const App = () => {
       <div className="p-2" />
       <pre>{JSON.stringify(table.getState(), null, 2)}</pre>
     </Styles>
-  )
-}
+  );
+};
 
-export default App
+export default App;
