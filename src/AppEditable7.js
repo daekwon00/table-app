@@ -2,47 +2,7 @@ import React from "react";
 // import styled from "styled-components";
 import { useTable, usePagination } from "react-table";
 
-import { makeData } from "./makeData";
-
-// const Styles = styled.div`
-//   padding: 1rem;
-
-//   table {
-//     border-spacing: 0;
-//     border: 1px solid black;
-
-//     tr {
-//       :last-child {
-//         td {
-//           border-bottom: 0;
-//         }
-//       }
-//     }
-
-//     th,
-//     td {
-//       margin: 0;
-//       padding: 0.5rem;
-//       border-bottom: 1px solid black;
-//       border-right: 1px solid black;
-
-//       :last-child {
-//         border-right: 0;
-//       }
-
-//       input {
-//         font-size: 1rem;
-//         padding: 0;
-//         margin: 0;
-//         border: 0;
-//       }
-//     }
-//   }
-
-//   .pagination {
-//     padding: 0.5rem;
-//   }
-// `;
+import { makeData } from "./components/makeData";
 
 // Create an editable cell renderer
 const EditableCell = ({
@@ -116,6 +76,8 @@ function Table({ columns, data, updateMyData, skipPageReset }) {
   // Render the UI for your table
   return (
     <>
+      {/* table start */}
+
       <table {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup) => (
@@ -141,6 +103,9 @@ function Table({ columns, data, updateMyData, skipPageReset }) {
           })}
         </tbody>
       </table>
+
+      {/* table end */}
+
       <div className="pagination">
         <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
           {"<<"}
@@ -190,45 +155,6 @@ function Table({ columns, data, updateMyData, skipPageReset }) {
 }
 
 function App() {
-  // const columns = React.useMemo(
-  //   () => [
-  //     {
-  //       Header: "Name",
-  //       columns: [
-  //         {
-  //           Header: "First Name",
-  //           accessor: "firstName",
-  //         },
-  //         {
-  //           Header: "Last Name",
-  //           accessor: "lastName",
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       Header: "Info",
-  //       columns: [
-  //         {
-  //           Header: "Age",
-  //           accessor: "age",
-  //         },
-  //         {
-  //           Header: "Visits",
-  //           accessor: "visits",
-  //         },
-  //         {
-  //           Header: "Status",
-  //           accessor: "status",
-  //         },
-  //         {
-  //           Header: "Profile Progress",
-  //           accessor: "progress",
-  //         },
-  //       ],
-  //     },
-  //   ],
-  //   []
-  // );
   const columns = [
     {
       Header: "First Name",

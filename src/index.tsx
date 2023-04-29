@@ -2,12 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 // import App from "./App";
-// import App from "./App_Basic";
-// import App from "./App_KitchenSink";
-import App from "./App_editable_v7";
+// import App from "./AppBasic";
+// import App from "./AppKitchenSink";
+// import App from "./AppEditable7";
+// import App from "./AppEditable";/
+import App from "./AppEditableCh";
 
-import data from "./data/staff.json";
-import StaffTable from "./test/StaffTable";
+// import data from "./data/staff.json";
+// import StaffTable from "./test/StaffTable";
 
 import reportWebVitals from "./reportWebVitals";
 

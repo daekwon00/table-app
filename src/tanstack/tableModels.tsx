@@ -5,13 +5,13 @@ import {
   sortingFns,
 } from "@tanstack/react-table";
 import React from "react";
-import { Person } from "../makeData";
+import { Person } from "../components/makeData";
 import {
   rankItem,
   compareItems,
   RankingInfo,
 } from "@tanstack/match-sorter-utils";
-import IndeterminateCheckbox from "../components/InderterminateCheckbox";
+import IndeterminateCheckbox from "./components/InderterminateCheckbox";
 import moment from "moment";
 
 export const fuzzyFilter: FilterFn<Person> = (

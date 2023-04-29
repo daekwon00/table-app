@@ -12,20 +12,20 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 import React from "react";
-import { makeData } from "./makeData";
+import { makeData } from "./components/makeData";
 
 import styled from "@emotion/styled";
-import { useSkipper } from "./hooks";
+import { useSkipper } from "./tanstack/hooks";
 import {
   columns,
   defaultColumn,
   fuzzyFilter,
   getTableMeta,
 } from "./tanstack/tableModels";
-import DebouncedInput from "./components/DebouncedInput";
-import ActionButtons from "./components/ActionButtons";
+import DebouncedInput from "./tanstack/components/DebouncedInput";
+import ActionButtons from "./tanstack/components/ActionButtons";
 // import { faker } from '@faker-js/faker'
-import CustomTable from "./components/CustomTable";
+import CustomTable from "./tanstack/components/CustomTable";
 
 const Styles = styled.div`
   padding: 1rem;
