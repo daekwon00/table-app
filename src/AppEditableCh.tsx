@@ -74,6 +74,7 @@ export const App = () => {
   const columns = React.useMemo<ColumnDef<Person>[]>(
     () => [
       {
+        header: "firstName V8",
         accessorKey: "firstName",
         cell: (info) => info.getValue(),
       },

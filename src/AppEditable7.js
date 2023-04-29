@@ -164,23 +164,22 @@ function App() {
       Header: "Last Name",
       accessor: "lastName",
     },
-
     {
       Header: "Age",
       accessor: "age",
     },
-    {
-      Header: "Visits",
-      accessor: "visits",
-    },
-    {
-      Header: "Status",
-      accessor: "status",
-    },
-    {
-      Header: "Profile Progress",
-      accessor: "progress",
-    },
+    // {
+    //   Header: "Visits",
+    //   accessor: "visits",
+    // },
+    // {
+    //   Header: "Status",
+    //   accessor: "status",
+    // },
+    // {
+    //   Header: "Profile Progress",
+    //   accessor: "progress",
+    // },
   ];
 
   const [data, setData] = React.useState(() => makeData(20));
