@@ -4,8 +4,8 @@ import "./index.css";
 
 //
 import {
-  Column,
-  Table,
+  // Column,
+  // Table,
   ColumnDef,
   useReactTable,
   getCoreRowModel,
@@ -185,13 +185,13 @@ export const App = () => {
 
       <div className="h-2" />
       <div className="flex items-center gap-2">
-        <button
+        {/* <button
           className="border rounded p-1"
           onClick={() => table.setPageIndex(0)}
           disabled={!table.getCanPreviousPage()}
         >
           {"<<"}
-        </button>
+        </button> */}
         <button
           className="border rounded p-1"
           onClick={() => table.previousPage()}
@@ -199,6 +199,13 @@ export const App = () => {
         >
           {"<"}
         </button>
+        <span className="flex items-center gap-1">
+          Page
+          <strong>
+            {table.getState().pagination.pageIndex + 1} of{" "}
+            {table.getPageCount()}
+          </strong>
+        </span>
         <button
           className="border rounded p-1"
           onClick={() => table.nextPage()}
@@ -206,21 +213,20 @@ export const App = () => {
         >
           {">"}
         </button>
-        <button
+        {/* <button
           className="border rounded p-1"
           onClick={() => table.setPageIndex(table.getPageCount() - 1)}
           disabled={!table.getCanNextPage()}
         >
           {">>"}
-        </button>
-        <span className="flex items-center gap-1">
-          <div>Page</div>
+        </button> */}
+        {/* <span className="flex items-center gap-1">          
           <strong>
             {table.getState().pagination.pageIndex + 1} of{" "}
             {table.getPageCount()}
           </strong>
-        </span>
-        <span className="flex items-center gap-1">
+        </span> */}
+        {/* <span className="flex items-center gap-1">
           | Go to page:
           <input
             type="number"
@@ -231,7 +237,7 @@ export const App = () => {
             }}
             className="border p-1 rounded w-16"
           />
-        </span>
+        </span> */}
         <select
           value={table.getState().pagination.pageSize}
           onChange={(e) => {
@@ -245,7 +251,7 @@ export const App = () => {
           ))}
         </select>
       </div>
-      <div>{table.getRowModel().rows.length} Rows</div>
+      {/* <div>{table.getRowModel().rows.length} Rows</div> */}
       <div>
         <button onClick={() => rerender()}>Force Rerender</button>
       </div>
@@ -255,55 +261,55 @@ export const App = () => {
     </div>
   );
 };
-function Filter({
-  column,
-  table,
-}: {
-  column: Column<any, any>;
-  table: Table<any>;
-}) {
-  const firstValue = table
-    .getPreFilteredRowModel()
-    .flatRows[0]?.getValue(column.id);
+// function Filter({
+//   column,
+//   table,
+// }: {
+//   column: Column<any, any>;
+//   table: Table<any>;
+// }) {
+//   const firstValue = table
+//     .getPreFilteredRowModel()
+//     .flatRows[0]?.getValue(column.id);
 
-  const columnFilterValue = column.getFilterValue();
+//   const columnFilterValue = column.getFilterValue();
 
-  return typeof firstValue === "number" ? (
-    <div className="flex space-x-2">
-      <input
-        type="number"
-        value={(columnFilterValue as [number, number])?.[0] ?? ""}
-        onChange={(e) =>
-          column.setFilterValue((old: [number, number]) => [
-            e.target.value,
-            old?.[1],
-          ])
-        }
-        placeholder={`Min`}
-        className="w-24 border shadow rounded"
-      />
-      <input
-        type="number"
-        value={(columnFilterValue as [number, number])?.[1] ?? ""}
-        onChange={(e) =>
-          column.setFilterValue((old: [number, number]) => [
-            old?.[0],
-            e.target.value,
-          ])
-        }
-        placeholder={`Max`}
-        className="w-24 border shadow rounded"
-      />
-    </div>
-  ) : (
-    <input
-      type="text"
-      value={(columnFilterValue ?? "") as string}
-      onChange={(e) => column.setFilterValue(e.target.value)}
-      placeholder={`Search...`}
-      className="w-36 border shadow rounded"
-    />
-  );
-}
+//   return typeof firstValue === "number" ? (
+//     <div className="flex space-x-2">
+//       <input
+//         type="number"
+//         value={(columnFilterValue as [number, number])?.[0] ?? ""}
+//         onChange={(e) =>
+//           column.setFilterValue((old: [number, number]) => [
+//             e.target.value,
+//             old?.[1],
+//           ])
+//         }
+//         placeholder={`Min`}
+//         className="w-24 border shadow rounded"
+//       />
+//       <input
+//         type="number"
+//         value={(columnFilterValue as [number, number])?.[1] ?? ""}
+//         onChange={(e) =>
+//           column.setFilterValue((old: [number, number]) => [
+//             old?.[0],
+//             e.target.value,
+//           ])
+//         }
+//         placeholder={`Max`}
+//         className="w-24 border shadow rounded"
+//       />
+//     </div>
+//   ) : (
+//     <input
+//       type="text"
+//       value={(columnFilterValue ?? "") as string}
+//       onChange={(e) => column.setFilterValue(e.target.value)}
+//       placeholder={`Search...`}
+//       className="w-36 border shadow rounded"
+//     />
+//   );
+// }
 
 export default App;
