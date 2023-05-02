@@ -6,7 +6,8 @@ import "./index.css";
 // import App from "./AppKitchenSink";
 // import App from "./AppEditable7";
 // import App from "./AppEditable";/
-import App from "./AppEditableCh";
+// import App from "./AppEditableCh";
+import App from "./AppImageOpen";
 
 // import data from "./data/staff.json";
 // import StaffTable from "./test/StaffTable";
