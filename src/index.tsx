@@ -7,7 +7,9 @@ import "./index.css";
 // import App from "./AppEditable7";
 // import App from "./AppEditable";/
 // import App from "./AppEditableCh";
-import App from "./AppImageOpen";
+// import App from "./AppImageOpen";
+import App from "./AppStudy";
+import * as serviceWorker from "./study/serviceWorker";
 
 // import data from "./data/staff.json";
 // import StaffTable from "./test/StaffTable";
@@ -28,3 +30,6 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+// study 에서 사용됨.
+serviceWorker.unregister();

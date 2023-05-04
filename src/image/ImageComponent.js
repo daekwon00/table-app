@@ -54,6 +54,25 @@ export default class ImageComponent extends React.Component {
             </dialog>
           )}
         </div>
+
+        <div>
+          <button onClick={this.handleShowDialog}>sample.png</button>
+          {this.state.isOpen && (
+            <dialog
+              className="dialog"
+              style={{ position: "absolute" }}
+              open
+              onClick={this.handleShowDialog}
+            >
+              <span
+                // className="image"
+                // src="/Anj.png"
+                onClick={this.handleShowDialog}
+                // alt="no image"
+              />
+            </dialog>
+          )}
+        </div>
       </>
     );
   }
