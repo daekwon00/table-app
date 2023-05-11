@@ -69,6 +69,7 @@ function Table({ columns, data, updateMyData, skipPageReset }) {
       // That way we can call this function from our
       // cell renderer!
       updateMyData,
+      initialState: { pageIndex: 2, pageSize: 5 },
     },
     usePagination
   );
@@ -143,7 +144,7 @@ function Table({ columns, data, updateMyData, skipPageReset }) {
             setPageSize(Number(e.target.value));
           }}
         >
-          {[10, 20, 30, 40, 50].map((pageSize) => (
+          {[20, 30, 40, 50].map((pageSize) => (
             <option key={pageSize} value={pageSize}>
               Show {pageSize}
             </option>
@@ -182,7 +183,7 @@ function App() {
     // },
   ];
 
-  const [data, setData] = React.useState(() => makeData(20));
+  const [data, setData] = React.useState(() => makeData(100));
   const [originalData] = React.useState(data);
   const [skipPageReset, setSkipPageReset] = React.useState(false);
 

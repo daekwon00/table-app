@@ -109,24 +109,29 @@ export const App = () => {
     getPaginationRowModel: getPaginationRowModel(),
     autoResetPageIndex,
     // Provide our updateData function to our table meta
-    meta: {
-      updateData: (rowIndex, columnId, value) => {
-        // Skip page index reset until after next rerender
-        skipAutoResetPageIndex();
-        setData((old) =>
-          old.map((row, index) => {
-            if (index === rowIndex) {
-              return {
-                ...old[rowIndex]!,
-                [columnId]: value,
-              };
-            }
-            return row;
-          })
-        );
+    // meta: {
+    //   updateData: (rowIndex, columnId, value) => {
+    //     // Skip page index reset until after next rerender
+    //     skipAutoResetPageIndex();
+    //     setData((old) =>
+    //       old.map((row, index) => {
+    //         if (index === rowIndex) {
+    //           return {
+    //             ...old[rowIndex]!,
+    //             [columnId]: value,
+    //           };
+    //         }
+    //         return row;
+    //       })
+    //     );
+    //   },
+    // },
+    debugTable: true,
+    initialState: {
+      pagination: {
+        pageSize: 3,
       },
     },
-    debugTable: true,
   });
 
   return (

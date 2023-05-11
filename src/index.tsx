@@ -5,11 +5,11 @@ import "./index.css";
 // import App from "./AppBasic";
 // import App from "./AppKitchenSink";
 // import App from "./AppEditable7";
-// import App from "./AppEditable";/
-// import App from "./AppEditableCh";
+// import App from "./AppEditable";
+import App from "./AppEditableCh";
 // import App from "./AppImageOpen";
-import App from "./AppStudy";
-import * as serviceWorker from "./study/serviceWorker";
+// import App from "./AppStudy";
+// import * as serviceWorker from "./study/serviceWorker";
 
 // import data from "./data/staff.json";
 // import StaffTable from "./test/StaffTable";
@@ -32,4 +32,4 @@ root.render(
 reportWebVitals();
 
 // study 에서 사용됨.
-serviceWorker.unregister();
+// serviceWorker.unregister();
