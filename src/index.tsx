@@ -6,13 +6,15 @@ import "./index.css";
 // import App from "./AppKitchenSink";
 // import App from "./AppEditable7";
 // import App from "./AppEditable";
-import App from "./AppEditableCh";
+// import App from "./AppEditableCh";
 // import App from "./AppImageOpen";
 // import App from "./AppStudy";
 // import * as serviceWorker from "./study/serviceWorker";
 
 // import data from "./data/staff.json";
 // import StaffTable from "./test/StaffTable";
+
+import App from "./AppExcel";
 
 import reportWebVitals from "./reportWebVitals";
 
