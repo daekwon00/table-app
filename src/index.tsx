@@ -14,9 +14,10 @@ import "./index.css";
 // import data from "./data/staff.json";
 // import StaffTable from "./test/StaffTable";
 
-import App from "./AppExcel";
+// import App from "./AppExcel";
+// import reportWebVitals from "./reportWebVitals";
 
-import reportWebVitals from "./reportWebVitals";
+import App from "./AppExcel2";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -31,7 +32,7 @@ root.render(
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// reportWebVitals();
 
 // study 에서 사용됨.
 // serviceWorker.unregister();

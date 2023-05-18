@@ -97,9 +97,10 @@ const Success = () => {
       {viewModel.loading && (
         <Loading>
           {/* <LoadingOutlined></LoadingOutlined> */}
-          {/* {"loading..."} */}
+          {"loading..."}
         </Loading>
       )}
+      {viewModel.dataCheck ? "data normal" : "data false"}
       <DataWrapper>
         {viewModel.data.map((v) => (
           <ul>
