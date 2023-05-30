@@ -17,7 +17,9 @@ import "./index.css";
 // import App from "./AppExcel";
 // import reportWebVitals from "./reportWebVitals";
 
-import App from "./AppExcel2";
+// import App from "./AppExcel2";
+
+import App from "./AppRowSlect";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
